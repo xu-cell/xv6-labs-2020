@@ -29,20 +29,21 @@ ls(char *path)
   int fd;
   struct dirent de;
   struct stat st;
-
+  // 打开文件，获取文件id
   if((fd = open(path, 0)) < 0){
     fprintf(2, "ls: cannot open %s\n", path);
     return;
   }
-
+  // 获取文件信息
   if(fstat(fd, &st) < 0){
     fprintf(2, "ls: cannot stat %s\n", path);
     close(fd);
     return;
   }
-
+  // 根据文件类型进行不同处理
   switch(st.type){
-  case T_FILE:
+  case T_FILE: // 如果是文件就直接打印文件信息
+    // fmtname : 传入路径，获取路径最后一个文件名
     printf("%s %d %d %l\n", fmtname(path), st.type, st.ino, st.size);
     break;
 

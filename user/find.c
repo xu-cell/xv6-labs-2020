@@ -60,11 +60,6 @@ void find(char *path, char *name) {
             printf("%s/%s\n",path,name);
             break;
             }
-             if(!strcmp(fmtname(buf),".") && !strcmp(fmtname(buf),"..")) {
-
-                find(buf,name);
-            }
-            break;
             case T_DIR:
 
             if((strcmp(fmtname(buf),".") != 0) && (strcmp(fmtname(buf),"..") != 0)) {

@@ -1,22 +1,17 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "lldb",
+            "name": "xv6debug",
+            "type": "cppdbg",
             "request": "launch",
-            "name": "Debug",
             "program": "${workspaceFolder}/kernel/kernel",
-            "args": [],
-            "stopAtEntry":true,
+            "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
-            "miDebuggerServerAddress":"localhost:26000",
-            "miDebuggerPath":"/usr/bin/gdb-multiarch",
-            "environment":[],
-            "extennalConsole":false,
-        
+            "miDebuggerServerAddress": "127.0.0.1:26000", //见.gdbinit 中 target remote xxxx:xx
+            "miDebuggerPath": "/usr/bin/gdb-multiarch", // which gdb-multiarch
+            "MIMode": "gdb",
+            "preLaunchTask": "xv6build"
         }
     ]
 }
